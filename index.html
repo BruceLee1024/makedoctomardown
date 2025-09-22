@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word转Markdown转换器</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Word转Markdown转换器</h1>
+            <p>轻松将Word文档转换为精美的Markdown格式</p>
+        </header>
+
+        <main class="main-content">
+            <!-- 上传区域 -->
+            <section class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📁</div>
+                    <div class="upload-text">拖拽Word文档到此处</div>
+                    <div class="upload-subtext">或点击选择文件</div>
+                    <input type="file" id="fileInput" class="file-input" accept=".docx,.doc" multiple>
+                </div>
+            </section>
+
+            <!-- 选项区域 -->
+            <section class="options-section">
+                <h3 class="options-title">转换选项</h3>
+                <div class="format-selector">
+                    <label for="formatSelect">输出格式：</label>
+                    <select id="formatSelect">
+                        <option value="markdown">标准Markdown</option>
+                        <option value="table">对话表格格式</option>
+                    </select>
+                </div>
+                <div id="formatInfo" class="format-info" style="display: none; margin-top: 15px;">
+                    <p><strong>对话表格格式：</strong>将对话内容整理为三列表格（时间戳、发言人、内容）</p>
+                </div>
+                <div class="mcp-option" style="margin-top: 15px;">
+                    <label>
+                        <input type="checkbox" id="use-mcp">
+                        使用MCP服务转换
+                    </label>
+                    <small id="mcp-status">正在检查MCP服务状态...</small>
+                </div>
+            </section>
+
+            <!-- 文件列表 -->
+            <div id="fileList" class="file-list" style="display: none;"></div>
+
+            <!-- 结果区域 -->
+            <section id="resultsSection" class="results-section">
+                <div id="resultsContainer"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="static/app.js"></script>
+</body>
+</html>
